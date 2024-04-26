@@ -8,6 +8,7 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
 
 - [Table of Contents](#table-of-contents)
 - [Author](#author)
+- [Assignment](#assignment)
 - [Questionnaire Library](#questionnaire-library)
   - [UML Diagram](#uml-diagram)
     - [Answer](#answer)
@@ -25,6 +26,10 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
 This application was created by [Simon Stijnen](https://github.com/SimonStnn). Student at [Vives University Of Applied Sciences](https://www.vives.be/nl/over-vives/campussen/vives-brugge-xaverianenstraat). Studying [Electronics - ICT](https://www.vives.be/nl/technology/elektronica-ict).
 
 > 25/04/2024 -
+
+## Assignment
+
+This project is the 4th assignment for the Object Oriented Programming course. The assignment details can be found in the [assignment PDF](./Permanente%20evaluatie%204%20-%202024%20-%20versie%20a.pdf).
 
 ## Questionnaire Library
 
