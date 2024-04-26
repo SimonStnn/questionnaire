@@ -17,5 +17,20 @@ namespace QuestionnaireLibrary
 		{
 			Text = text;
 		}
+
+		public void Add(Answer answer)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void GetAnswer(int index)
+		{
+			throw new NotImplementedException();
+		}
+
+		public override string ToString()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
