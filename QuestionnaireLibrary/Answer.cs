@@ -10,5 +10,10 @@
 			Text = text;
 			IsCorrect = isCorrect;
 		}
+
+		public override string ToString()
+		{
+			return Text;
+		}
 	}
 }
