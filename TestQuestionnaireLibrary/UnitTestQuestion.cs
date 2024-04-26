@@ -40,5 +40,12 @@ namespace TestQuestionnaireLibrary
             Assert.Throws<IndexOutOfRangeException>(() => question.GetAnswer(2));
         }
 
+
+		[Fact]
+		public void TestToString()
+		{
+			Assert.Equal("Are you reading this?", question.ToString());
+			Assert.Equal("Are you reading this?", $"{question}");
+        }
     }
 }
