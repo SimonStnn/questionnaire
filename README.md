@@ -49,9 +49,10 @@ class Question {
   -possibleAnswer: List~Answer~
   +<< get/set >>Text: string
   +<< get/set >>ImageUrl: string
+  +<< get >>Answers: List~Answer~
   +Question(text: string)
   +Add(answer: Answer)
-  +GetAnswer(index: int): Answer
+  +GetAnswer(index: int) Answer
   +ToString() string
 }
 
@@ -83,6 +84,7 @@ Answer --o Question
 
 - `Text`: The text of the question
 - `ImageUrl`: The url of the image of the question
+- `Answers`: The list of possible answers
 
 ##### Constructor
 
