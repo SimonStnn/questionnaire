@@ -8,7 +8,7 @@ namespace QuestionnaireLibrary
 {
 	public class Question
 	{
-		private List<Answer> possibleAnser = new();
+		private readonly List<Answer> possibleAnser = new();
 
 		public string Text { get; set; }
 		public string? ImageUrl { get; set; }
@@ -20,17 +20,17 @@ namespace QuestionnaireLibrary
 
 		public void Add(Answer answer)
 		{
-			throw new NotImplementedException();
+			possibleAnser.Add(answer);
 		}
 
-		public void GetAnswer(int index)
+		public Answer GetAnswer(int index)
 		{
-			throw new NotImplementedException();
+			return possibleAnser[index];
 		}
 
 		public override string ToString()
 		{
-			throw new NotImplementedException();
+			return Text;
 		}
 	}
 }
