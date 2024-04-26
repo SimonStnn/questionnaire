@@ -27,5 +27,18 @@ namespace TestQuestionnaireLibrary
 			Assert.Equal(answer2, question.GetAnswer(1));
 			Assert.Throws<IndexOutOfRangeException>(() => question.GetAnswer(2));
 		}
-	}
+
+        [Fact]
+        public void TestGetAnswer()
+        {
+			Answer answer = new("Some answer", true);
+            question.Add(answer);
+            Assert.Equal(answer, question.GetAnswer(0));
+            Answer answer2 = new("Some answer", false);
+            question.Add(answer2);
+            Assert.Equal(answer2, question.GetAnswer(1));
+            Assert.Throws<IndexOutOfRangeException>(() => question.GetAnswer(2));
+        }
+
+    }
 }
