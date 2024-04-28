@@ -6,7 +6,7 @@ namespace TestScoreboardLibrary
     {
         private readonly PlayerScore playerScore;
 
-        UnitTestScoreboard()
+        public UnitTestScoreboard()
         {
             playerScore = new("John", 10);
         }
