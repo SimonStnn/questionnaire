@@ -5,7 +5,7 @@ namespace ScoreboardLibrary
     public class Scoreboard
     {
         private readonly List<PlayerScore> scoreList = new();
-        private string saveFile = "scoreboard.json";
+        private readonly string saveFile = "scoreboard.json";
 
         public List<PlayerScore> PlayerScores { get => scoreList; }
 
