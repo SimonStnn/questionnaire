@@ -39,6 +39,9 @@ namespace Questionnaire
 
         static void PromptQuestion(Question question, List<Answer> guesses)
         {
+            // Hide the cursor
+            Console.CursorVisible = false;
+
             // Display the question
             DisplayQuestion(question);
 
