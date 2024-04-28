@@ -60,7 +60,7 @@ namespace Questionnaire
             Console.WriteLine("Scoreboard:");
             foreach (PlayerScore player in scoreboard.PlayerScores)
             {
-                Console.WriteLine($"{player.Name.PadLeft(10)}: \t\t{player.Score}/{questions.Count}");
+                Console.WriteLine($"{player.Name.PadLeft(10)}: \t{player.Score}/{questions.Count}");
             }
         }
 
