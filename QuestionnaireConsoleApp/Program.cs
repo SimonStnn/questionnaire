@@ -1,4 +1,5 @@
 ﻿using QuestionnaireLibrary;
+using ScoreboardLibrary;
 
 namespace Questionnaire
 {
@@ -32,9 +33,35 @@ namespace Questionnaire
             }
 
             // Display the results
+            Console.WriteLine();
             Console.WriteLine("You have completed the questionnaire.");
             int score = questions.Count(question => question.Answers.All(answer => answer.IsCorrect == guesses.Contains(answer)));
             Console.WriteLine($"You scored {score} out of {questions.Count}.");
+            Console.WriteLine();
+            Console.Write($"Enter your name: ");
+            string? name = Console.ReadLine();
+
+            if(string.IsNullOrWhiteSpace(name))
+            {
+                Console.WriteLine("You must enter a name to save your score.");
+                Console.WriteLine("Goodbye.");
+                return;
+            }
+
+            Scoreboard scoreboard = new();
+            scoreboard.Load();
+            scoreboard.AddPlayer(name, score);
+            scoreboard.SortScoreBoard();
+            scoreboard.Save();
+
+            Console.WriteLine($"Thank you, {name}. Your score has been added to the scoreboard.");
+
+            Console.WriteLine();
+            Console.WriteLine("Scoreboard:");
+            foreach (PlayerScore player in scoreboard.PlayerScores)
+            {
+                Console.WriteLine($"{player.Name.PadLeft(10)}: \t\t{player.Score}/{questions.Count}");
+            }
         }
 
         static void PromptQuestion(Question question, List<Answer> guesses)
@@ -52,8 +79,8 @@ namespace Questionnaire
             // Save the current line
             int answerLine = Console.CursorTop - 1;
 
-            // Main loop
-            while (true)
+            bool running = true;
+            while (running)
             {
                 // Read a key
                 ConsoleKeyInfo key = Console.ReadKey(true);
@@ -77,13 +104,17 @@ namespace Questionnaire
                     case ConsoleKey.Enter:
                         Answer answer = question.GetAnswer(currentAnswerIndex);
                         guesses.Add(answer);
-                        return;
+                        running = false;
+                        continue;
                 }
 
                 // Redisplay the answers
                 Console.SetCursorPosition(0, answerLine);
                 DisplayAnswers(question, currentAnswerIndex);
             }
+
+            // Show the cursor
+            Console.CursorVisible = true;
         }
 
         static void DisplayQuestion(Question question)
