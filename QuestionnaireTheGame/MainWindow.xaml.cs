@@ -70,11 +70,43 @@ namespace QuestionnaireTheGame
             RenderQuestion();
         }
 
+        private void NextQuestion()
+        {
+            Question next = questions.ElementAtOrDefault(currentQuestionIndex);
+            if(next == null)
+            {
+                StringBuilder sb = new();
+                sb.AppendLine("You have answered all the questions!");
+                sb.AppendLine("Here are your results:");
+                int correct = 0;
+                for (int i = 0; i < questions.Count; i++)
+                {
+                    Question question = questions[i];
+                    Answer guess = guesses[i];
+                    sb.AppendLine($"{question.Text}");
+                    sb.AppendLine($"Your answer: {guess.Text}");
+                    sb.AppendLine($"Correct answer: {question.CorrectAnswer.Text}");
+                    sb.AppendLine();
+                    if (guess.IsCorrect)
+                        correct++;
+                }
+                sb.AppendLine($"You got {correct} out of {questions.Count} correct!");
+                MessageBox.Show(sb.ToString(), "Results");
+            }
+            else
+            {
+                RenderQuestion(currentQuestionIndex++);
+            }   
+        }
+
         private void RenderQuestion()
         {
             RenderQuestion(CurrentQuestion);
         }
-
+        private void RenderQuestion(int index)
+        {
+            RenderQuestion(questions[index]);
+        }
         private void RenderQuestion(Question question)
         {
             lblQuestion.Content = question.Text;
@@ -86,7 +118,7 @@ namespace QuestionnaireTheGame
             }
         }
 
-        private static Button RenderAnswer(Answer answer)
+        private Button RenderAnswer(Answer answer)
         {
             Button btn = new()
             {
@@ -94,7 +126,8 @@ namespace QuestionnaireTheGame
             };
             btn.Click += (sender, e) =>
             {
-
+                guesses.Add(answer);
+                NextQuestion();
             };
             return btn;
         }
