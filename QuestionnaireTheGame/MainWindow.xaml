@@ -40,10 +40,10 @@
                                     <Setter Property="BorderBrush" Value="LightBlue"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button x:Name="btnAnswer1" Content="btnAnswer1"/>
-                            <Button x:Name="btnAnswer2" Content="btnAnswer1"/>
-                            <Button x:Name="btnAnswer3" Content="btnAnswer1"/>
-                            <Button x:Name="btnAnswer4" Content="btnAnswer1"/>
+                            <Button Content="btnAnswer1"/>
+                            <Button Content="btnAnswer2"/>
+                            <Button Content="btnAnswer3"/>
+                            <Button Content="btnAnswer4"/>
                         </StackPanel>
                     </Grid>
                 </Grid>
