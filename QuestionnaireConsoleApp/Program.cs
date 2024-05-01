@@ -6,8 +6,9 @@ namespace Questionnaire
 {
     internal class Program
     {
-        static List<Question> questions = new();
-        static List<Answer> guesses = new();
+        private static readonly int numberOfQuestions = 10;
+        private static List<Question> questions = new();
+        private static List<Answer> guesses = new();
 
         private class QuestionHandler : IQuestionHandler
         {
@@ -39,8 +40,8 @@ namespace Questionnaire
             IQuestionHandler handler = new QuestionHandler();
 
             // Array to store the tasks
-            Task[] tasks = new Task[10];
-            for (int i = 0; i < 10; i++)
+            Task[] tasks = new Task[numberOfQuestions];
+            for (int i = 0; i < numberOfQuestions; i++)
             {
                 tasks[i] = Task.Run(async () =>
                 {
