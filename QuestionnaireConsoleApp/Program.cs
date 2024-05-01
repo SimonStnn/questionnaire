@@ -24,16 +24,20 @@ namespace Questionnaire
             }
         }
 
-
+        static void WelcomeMessage()
+        {
+            Console.Title = "Questionnaire";
+            Console.WriteLine("Welcome to the Trivia Challenge!");
+            Console.WriteLine("You will be presented with 10 questions.");
+            Console.WriteLine("Can you score 100%?");
+            Console.WriteLine();
+        }
         static async Task Main(string[] args)
         {
-            IQuestionHandler handler = new QuestionHandler();
+            WelcomeMessage();
 
-            // Fetch questions from the trivia API
-            for (int i = 0; i < 10; i++) // Fetch 10 questions
-            {
-                await TriviaApiRequester.RequestRandomQuestion(handler);
-            }
+            IQuestionHandler handler = new QuestionHandler();
+            await TriviaApiRequester.RequestRandomQuestion(handler);
 
             // Prompt the user with the questions
             foreach (Question question in questions)
