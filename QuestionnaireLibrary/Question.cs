@@ -15,6 +15,8 @@ namespace QuestionnaireLibrary
 
         public List<Answer> Answers { get { return possibleAnser; } }
 
+        public Answer CorrectAnswer { get { return possibleAnser.First(a => a.IsCorrect); } }
+
         public Question(string text)
         {
             Text = text;
