@@ -1,30 +1,39 @@
 ﻿using QuestionnaireLibrary;
 using ScoreboardLibrary;
+using TriviaApiLibrary;
 
 namespace Questionnaire
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static List<Question> questions = new();
+        static List<Answer> guesses = new();
+
+        private class QuestionHandler : IQuestionHandler
         {
-            List<Answer> guesses = new();
-            List<Question> questions = new();
+            void IQuestionHandler.ProcessQuestion(TriviaMultipleChoiceQuestion question)
+            {
+                // Convert the trivia question to your Question class
+                Question newQuestion = new(question.Question.Text);
+                newQuestion.Add(new Answer(question.CorrectAnswer, true));
+                foreach (string incorrectAnswer in question.IncorrectAnswers)
+                {
+                    newQuestion.Add(new Answer(incorrectAnswer, false));
+                }
+                questions.Add(newQuestion);
+            }
+        }
 
-            // Create a question and answers
-            Question question1 = new("What is the capital of France?");
-            question1.Add(new Answer("Paris", true));
-            question1.Add(new Answer("London", false));
-            question1.Add(new Answer("Berlin", false));
-            question1.Add(new Answer("Madrid", false));
-            questions.Add(question1);
 
-            Question question2 = new("What is the capital of Spain?");
-            question2.Add(new Answer("Paris", false));
-            question2.Add(new Answer("London", false));
-            question2.Add(new Answer("Berlin", false));
-            question2.Add(new Answer("Madrid", true));
-            question2.Add(new Answer("Barcelona", false));
-            questions.Add(question2);
+        static async Task Main(string[] args)
+        {
+            IQuestionHandler handler = new QuestionHandler();
+
+            // Fetch questions from the trivia API
+            for (int i = 0; i < 10; i++) // Fetch 10 questions
+            {
+                await TriviaApiRequester.RequestRandomQuestion(handler);
+            }
 
             // Prompt the user with the questions
             foreach (Question question in questions)
@@ -41,7 +50,7 @@ namespace Questionnaire
             Console.Write($"Enter your name: ");
             string? name = Console.ReadLine();
 
-            if(string.IsNullOrWhiteSpace(name))
+            if (string.IsNullOrWhiteSpace(name))
             {
                 Console.WriteLine("You must enter a name to save your score.");
                 Console.WriteLine("Goodbye.");
