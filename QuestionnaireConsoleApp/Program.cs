@@ -37,7 +37,18 @@ namespace Questionnaire
             WelcomeMessage();
 
             IQuestionHandler handler = new QuestionHandler();
-            await TriviaApiRequester.RequestRandomQuestion(handler);
+
+            // Array to store the tasks
+            Task[] tasks = new Task[10];
+            for (int i = 0; i < 10; i++)
+            {
+                tasks[i] = Task.Run(async () =>
+                {
+                    await TriviaApiRequester.RequestRandomQuestion(handler);
+                });
+            }
+            // Wait for all tasks to complete
+            await Task.WhenAll(tasks);
 
             // Prompt the user with the questions
             foreach (Question question in questions)
@@ -73,7 +84,7 @@ namespace Questionnaire
             Console.WriteLine("Scoreboard:");
             foreach (PlayerScore player in scoreboard.PlayerScores)
             {
-                Console.WriteLine($"{player.Name.PadLeft(10)}: \t{player.Score}/{questions.Count}");
+                Console.WriteLine($"{player.Name,10}: \t{player.Score}/{questions.Count}");
             }
         }
 
