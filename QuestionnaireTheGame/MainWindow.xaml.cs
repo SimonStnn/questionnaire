@@ -19,6 +19,8 @@ namespace QuestionnaireTheGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        private QuestionsPage questionsPage = new(new QuestionPageHandler());
+
         private static readonly int numberOfQuestions = 10;
         private static List<Question> questions = new();
         private static List<Answer> guesses = new();
@@ -40,12 +42,52 @@ namespace QuestionnaireTheGame
             }
         }
 
+        private class QuestionPageHandler : IQuestionPageHandler
+        {
+            public Question CurrentQuestion => CurrentQuestion;
+            public List<Question> Questions => questions;
+            public List<Answer> Guesses => guesses;
+
+            public void ProcessQuestion(Question question)
+            {
+                questions.Add(question);
+            }
+
+            public void QuestionAnswered(Answer answer)
+            {
+                Guesses.Add(answer);
+                Question? next = Questions.ElementAtOrDefault(currentQuestionIndex);
+                if (next == null)
+                {
+                    StringBuilder sb = new();
+                    sb.AppendLine("You have answered all the questions!");
+                    sb.AppendLine("Here are your results:");
+                    int correct = 0;
+                    for (int i = 0; i < Questions.Count; i++)
+                    {
+                        Question question = Questions[i];
+                        Answer guess = Guesses[i];
+                        sb.AppendLine($"{question.Text}");
+                        sb.AppendLine($"Your answer: {guess.Text}");
+                        sb.AppendLine($"Correct answer: {question.CorrectAnswer.Text}");
+                        sb.AppendLine();
+                        if (guess.IsCorrect)
+                            correct++;
+                    }
+                    sb.AppendLine($"You got {correct} out of {questions.Count} correct!");
+                    MessageBox.Show(sb.ToString(), "Results");
+                }
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
 
+            mainFrame.Navigate(questionsPage);
+
             lblInfo.Content = "Welcome to the Trivia Challenge! Loading your questions...";
-            lblQuestion.Content = "Loading questions...";
+            questionsPage.lblQuestion.Content = "Loading questions...";
 
             IQuestionHandler handler = new QuestionHandler();
             _ = LoadQuestions(handler);
@@ -67,69 +109,7 @@ namespace QuestionnaireTheGame
 
             lblInfo.Content = "Trivia Challenge!";
             currentQuestionIndex = 0;
-            RenderQuestion();
-        }
-
-        private void NextQuestion()
-        {
-            Question next = questions.ElementAtOrDefault(currentQuestionIndex);
-            if(next == null)
-            {
-                StringBuilder sb = new();
-                sb.AppendLine("You have answered all the questions!");
-                sb.AppendLine("Here are your results:");
-                int correct = 0;
-                for (int i = 0; i < questions.Count; i++)
-                {
-                    Question question = questions[i];
-                    Answer guess = guesses[i];
-                    sb.AppendLine($"{question.Text}");
-                    sb.AppendLine($"Your answer: {guess.Text}");
-                    sb.AppendLine($"Correct answer: {question.CorrectAnswer.Text}");
-                    sb.AppendLine();
-                    if (guess.IsCorrect)
-                        correct++;
-                }
-                sb.AppendLine($"You got {correct} out of {questions.Count} correct!");
-                MessageBox.Show(sb.ToString(), "Results");
-            }
-            else
-            {
-                RenderQuestion(currentQuestionIndex++);
-            }   
-        }
-
-        private void RenderQuestion()
-        {
-            RenderQuestion(CurrentQuestion);
-        }
-        private void RenderQuestion(int index)
-        {
-            RenderQuestion(questions[index]);
-        }
-        private void RenderQuestion(Question question)
-        {
-            lblQuestion.Content = question.Text;
-            spAnswers.Children.Clear();
-            foreach (Answer answer in question.Answers)
-            {
-                Button btn = RenderAnswer(answer);
-                spAnswers.Children.Add(btn);
-            }
-        }
-
-        private Button RenderAnswer(Answer answer)
-        {
-            Button btn = new()
-            {
-                Content = answer.Text,
-            };
-            btn.Click += (sender, e) =>
-            {
-                guesses.Add(answer);
-                NextQuestion();
-            };
-            return btn;
+            questionsPage.RenderQuestion();
         }
 
         private void BtnAbout_Click(object sender, RoutedEventArgs e)
