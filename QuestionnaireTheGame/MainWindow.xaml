@@ -14,7 +14,7 @@
                 <RowDefinition Height="30px"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Background="AliceBlue">
-                <Label x:Name="lblInfo" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                <Label x:Name="lblInfo" Content="lblInfo" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid>
@@ -28,7 +28,23 @@
                             <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
                         <Label x:Name="lblQuestion" Content="lblQuestion" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="AliceBlue" FontSize="20"/>
-                        <StackPanel Grid.Row="1"/>
+                        <StackPanel x:Name="spAnswers" Grid.Row="1">
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Margin" Value="0,10,0,0"/>
+                                    <Setter Property="Padding" Value="10,12"/>
+                                    <Setter Property="FontSize" Value="16"/>
+                                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="Background" Value="AliceBlue"/>
+                                    <Setter Property="BorderBrush" Value="LightBlue"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button x:Name="btnAnswer1" Content="btnAnswer1"/>
+                            <Button x:Name="btnAnswer2" Content="btnAnswer1"/>
+                            <Button x:Name="btnAnswer3" Content="btnAnswer1"/>
+                            <Button x:Name="btnAnswer4" Content="btnAnswer1"/>
+                        </StackPanel>
                     </Grid>
                 </Grid>
             </Grid>
