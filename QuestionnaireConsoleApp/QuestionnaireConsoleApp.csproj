@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\QuestionnaireLibrary\QuestionnaireLibrary.csproj" />
     <ProjectReference Include="..\ScoreboardLibrary\ScoreboardLibrary.csproj" />
+    <ProjectReference Include="..\TriviaApiLibrary\TriviaApiLibrary.csproj" />
   </ItemGroup>
 
 </Project>
