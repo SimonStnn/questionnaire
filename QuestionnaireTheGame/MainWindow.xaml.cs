@@ -44,14 +44,13 @@ namespace QuestionnaireTheGame
 
         private class QuestionPageHandler : IQuestionPageHandler
         {
-            public Question CurrentQuestion => CurrentQuestion;
-            public List<Question> Questions => questions;
-            public List<Answer> Guesses => guesses;
-
-            public void ProcessQuestion(Question question)
+            public int CurrentQuestionIndex
             {
-                questions.Add(question);
+                get => currentQuestionIndex;
+                set => currentQuestionIndex = value;
             }
+            public List<Question> Questions => questions;
+            private static List<Answer> Guesses => guesses;
 
             public void QuestionAnswered(Answer answer)
             {
@@ -77,6 +76,11 @@ namespace QuestionnaireTheGame
                     sb.AppendLine($"You got {correct} out of {questions.Count} correct!");
                     MessageBox.Show(sb.ToString(), "Results");
                 }
+            }
+
+            public void Done()
+            {
+                MessageBox.Show("You have answered all the questions!", "Results");
             }
         }
 

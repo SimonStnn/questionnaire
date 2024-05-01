@@ -31,7 +31,7 @@ namespace QuestionnaireTheGame
         }
         public void RenderQuestion()
         {
-            RenderQuestion(handler.CurrentQuestion);
+            RenderQuestion(handler.CurrentQuestionIndex);
         }
         public void RenderQuestion(int index)
         {
@@ -58,9 +58,9 @@ namespace QuestionnaireTheGame
             {
                 handler.QuestionAnswered(answer);
 
-                if (handler.Questions.Count > handler.Guesses.Count)
+                if (handler.CurrentQuestionIndex < handler.Questions.Count)
                 {
-                    RenderQuestion();
+                    RenderQuestion(handler.CurrentQuestionIndex++);
                 }
                 else
                 {

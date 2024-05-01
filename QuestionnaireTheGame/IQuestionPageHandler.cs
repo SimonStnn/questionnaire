@@ -9,12 +9,11 @@ namespace QuestionnaireTheGame
 {
     public interface IQuestionPageHandler
     {
-        public Question CurrentQuestion { get; }
+        public int CurrentQuestionIndex { get; set; }
         public List<Question> Questions { get; }
-        public List<Answer> Guesses { get; }
-
-        public void ProcessQuestion(Question question);
 
         public void QuestionAnswered(Answer answer);
+
+        public void Done();
     }
 }
