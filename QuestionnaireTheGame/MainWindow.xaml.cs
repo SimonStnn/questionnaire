@@ -22,6 +22,8 @@ namespace QuestionnaireTheGame
         private static readonly int numberOfQuestions = 10;
         private static List<Question> questions = new();
         private static List<Answer> guesses = new();
+        private static int currentQuestionIndex = 0;
+        private static Question CurrentQuestion => questions[currentQuestionIndex];
 
         private class QuestionHandler : IQuestionHandler
         {
@@ -43,12 +45,13 @@ namespace QuestionnaireTheGame
             InitializeComponent();
 
             lblInfo.Content = "Welcome to the Trivia Challenge! Loading your questions...";
+            lblQuestion.Content = "Loading questions...";
 
             IQuestionHandler handler = new QuestionHandler();
-            //LoadQuestions(handler).Wait();
+            _ = LoadQuestions(handler);
         }
 
-        private static async Task LoadQuestions(IQuestionHandler handler)
+        private async Task LoadQuestions(IQuestionHandler handler)
         {
             // Array to store the tasks
             Task[] tasks = new Task[numberOfQuestions];
@@ -61,6 +64,39 @@ namespace QuestionnaireTheGame
             }
             // Wait for all tasks to complete
             await Task.WhenAll(tasks);
+
+            lblInfo.Content = "Trivia Challenge!";
+            currentQuestionIndex = 0;
+            RenderQuestion();
+        }
+
+        private void RenderQuestion()
+        {
+            RenderQuestion(CurrentQuestion);
+        }
+
+        private void RenderQuestion(Question question)
+        {
+            lblQuestion.Content = question.Text;
+            spAnswers.Children.Clear();
+            foreach (Answer answer in question.Answers)
+            {
+                Button btn = RenderAnswer(answer);
+                spAnswers.Children.Add(btn);
+            }
+        }
+
+        private static Button RenderAnswer(Answer answer)
+        {
+            Button btn = new()
+            {
+                Content = answer.Text,
+            };
+            btn.Click += (sender, e) =>
+            {
+
+            };
+            return btn;
         }
 
         private void BtnAbout_Click(object sender, RoutedEventArgs e)
