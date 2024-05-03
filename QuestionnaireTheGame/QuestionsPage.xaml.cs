@@ -58,9 +58,9 @@ namespace QuestionnaireTheGame
             {
                 handler.QuestionAnswered(answer);
 
-                if (handler.CurrentQuestionIndex < handler.Questions.Count)
+                if (++handler.CurrentQuestionIndex < handler.Questions.Count)
                 {
-                    RenderQuestion(handler.CurrentQuestionIndex++);
+                    RenderQuestion();
                 }
                 else
                 {
