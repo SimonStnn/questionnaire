@@ -60,7 +60,8 @@ namespace QuestionnaireTheGame
 
             public void Done()
             {
-                MessageBox.Show("You have answered all the questions!", "Results");
+                ResultPage pgResult = new(questions, guesses);
+                questionsPage.NavigationService.Navigate(pgResult);
             }
         }
 
