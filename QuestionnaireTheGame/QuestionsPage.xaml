@@ -32,5 +32,6 @@
                 </StackPanel.Resources>
             </StackPanel>
         </Grid>
+        <Label x:Name="lblProgress" Grid.Column="1" Content="lblProgress" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Background="AliceBlue"/>
     </Grid>
 </Page>
