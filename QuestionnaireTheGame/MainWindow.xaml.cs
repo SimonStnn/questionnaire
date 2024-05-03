@@ -79,6 +79,20 @@ namespace QuestionnaireTheGame
             _ = LoadQuestions(handler);
         }
 
+        // Fisher-Yates shuffle algorithm
+        public static List<T> Shuffle<T>(List<T> list)
+        {
+            Random rnd = new();
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rnd.Next(n + 1);
+                (list[n], list[k]) = (list[k], list[n]);
+            }
+            return list;
+        }
+
         private static void UpdateProgress()
         {
             questionsPage.lblProgress.Content = $"Question {currentQuestionIndex + 1} of {numberOfQuestions}";
@@ -100,6 +114,7 @@ namespace QuestionnaireTheGame
 
             lblInfo.Content = "Trivia Challenge!";
             currentQuestionIndex = 0;
+            questions = Shuffle(questions);
             questionsPage.RenderQuestion();
         }
 
