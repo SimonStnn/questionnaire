@@ -64,7 +64,7 @@ namespace QuestionnaireTheGame
                 }
                 else
                 {
-
+                    handler.Done();
                 }
             };
             return btn;
