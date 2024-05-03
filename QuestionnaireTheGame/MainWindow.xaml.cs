@@ -114,7 +114,10 @@ namespace QuestionnaireTheGame
 
             lblInfo.Content = "Trivia Challenge!";
             currentQuestionIndex = 0;
-            questions = Shuffle(questions);
+            foreach (Question question in questions)
+            {
+                Shuffle(question.Answers);
+            }
             questionsPage.RenderQuestion();
         }
 
