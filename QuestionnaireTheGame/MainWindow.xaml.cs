@@ -19,7 +19,7 @@ namespace QuestionnaireTheGame
     /// </summary>
     public partial class MainWindow : Window
     {
-        private QuestionsPage questionsPage = new(new QuestionPageHandler());
+        private static readonly QuestionsPage questionsPage = new(new QuestionPageHandler());
 
         private static readonly int numberOfQuestions = 10;
         private static List<Question> questions = new();
@@ -55,27 +55,7 @@ namespace QuestionnaireTheGame
             public void QuestionAnswered(Answer answer)
             {
                 Guesses.Add(answer);
-                Question? next = Questions.ElementAtOrDefault(currentQuestionIndex);
-                if (next == null)
-                {
-                    StringBuilder sb = new();
-                    sb.AppendLine("You have answered all the questions!");
-                    sb.AppendLine("Here are your results:");
-                    int correct = 0;
-                    for (int i = 0; i < Questions.Count; i++)
-                    {
-                        Question question = Questions[i];
-                        Answer guess = Guesses[i];
-                        sb.AppendLine($"{question.Text}");
-                        sb.AppendLine($"Your answer: {guess.Text}");
-                        sb.AppendLine($"Correct answer: {question.CorrectAnswer.Text}");
-                        sb.AppendLine();
-                        if (guess.IsCorrect)
-                            correct++;
-                    }
-                    sb.AppendLine($"You got {correct} out of {questions.Count} correct!");
-                    MessageBox.Show(sb.ToString(), "Results");
-                }
+                UpdateProgress();
             }
 
             public void Done()
@@ -92,9 +72,15 @@ namespace QuestionnaireTheGame
 
             lblInfo.Content = "Welcome to the Trivia Challenge! Loading your questions...";
             questionsPage.tbQuestion.Text = "Loading questions...";
+            UpdateProgress();
 
             IQuestionHandler handler = new QuestionHandler();
             _ = LoadQuestions(handler);
+        }
+
+        private static void UpdateProgress()
+        {
+            questionsPage.lblProgress.Content = $"Question {currentQuestionIndex + 1} of {numberOfQuestions}";
         }
 
         private async Task LoadQuestions(IQuestionHandler handler)
