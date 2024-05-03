@@ -8,7 +8,31 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ResultPage">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid Margin="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Congratulations" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"/>
+                <Label Grid.Row="1" x:Name="lblScore" Content="lblScore" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+                <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel x:Name="spGuesses">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type Grid}">
+                                <Setter Property="Margin" Value="0,10,0,0"/>
+                                <Setter Property="Background" Value="AliceBlue"/>
+                            </Style>
+                        </StackPanel.Resources>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
