@@ -39,7 +39,7 @@ namespace QuestionnaireTheGame
         }
         public void RenderQuestion(Question question)
         {
-            lblQuestion.Content = question.Text;
+            tbQuestion.Text = question.Text;
             spAnswers.Children.Clear();
             foreach (Answer answer in question.Answers)
             {

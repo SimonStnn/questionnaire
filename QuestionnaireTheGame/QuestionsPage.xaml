@@ -17,7 +17,7 @@
                 <RowDefinition Height="64px"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            <Label x:Name="lblQuestion" Content="lblQuestion" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="AliceBlue" FontSize="20"/>
+            <TextBlock x:Name="tbQuestion" Text="tbQuestion" TextAlignment="Center" Padding="4" Background="AliceBlue" FontSize="20" TextWrapping="Wrap"/>
             <StackPanel x:Name="spAnswers" Grid.Row="1">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Button}">
@@ -30,10 +30,6 @@
                         <Setter Property="BorderBrush" Value="LightBlue"/>
                     </Style>
                 </StackPanel.Resources>
-                <Button Content="btnAnswer1"/>
-                <Button Content="btnAnswer2"/>
-                <Button Content="btnAnswer3"/>
-                <Button Content="btnAnswer4"/>
             </StackPanel>
         </Grid>
     </Grid>

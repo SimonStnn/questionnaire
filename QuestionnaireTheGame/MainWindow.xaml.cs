@@ -91,7 +91,7 @@ namespace QuestionnaireTheGame
             mainFrame.Navigate(questionsPage);
 
             lblInfo.Content = "Welcome to the Trivia Challenge! Loading your questions...";
-            questionsPage.lblQuestion.Content = "Loading questions...";
+            questionsPage.tbQuestion.Text = "Loading questions...";
 
             IQuestionHandler handler = new QuestionHandler();
             _ = LoadQuestions(handler);
