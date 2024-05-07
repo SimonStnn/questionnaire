@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:QuestionnaireTheGame"
         mc:Ignorable="d"
         Title="Questionnaire" Height="500" Width="800">
-    <Grid>
+    <Grid Background="Beige">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="60px"></RowDefinition>
