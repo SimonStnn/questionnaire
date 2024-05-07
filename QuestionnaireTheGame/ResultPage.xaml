@@ -34,5 +34,19 @@
                 </ScrollViewer>
             </Grid>
         </Grid>
+        <Grid Grid.Column="1" Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="40px"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Scoreboard" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Label Content="Fill in your name:" VerticalContentAlignment="Center" FontSize="16" />
+                <TextBox Width="180px" VerticalContentAlignment="Center" Text="abc" FontSize="16" Padding="8"/>
+                <Button Content="Save" Padding="16,8"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical"/>
+        </Grid>
     </Grid>
 </Page>
