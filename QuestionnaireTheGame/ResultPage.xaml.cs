@@ -117,6 +117,7 @@ namespace QuestionnaireTheGame
 			{
 				Content = player,
 				HorizontalContentAlignment = HorizontalAlignment.Center,
+				FontSize = 14,
 			};
 
 			grid.Children.Add(name);
