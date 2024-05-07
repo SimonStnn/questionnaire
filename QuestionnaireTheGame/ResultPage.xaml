@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ResultPage">
 
-    <Grid Background="White">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
@@ -43,10 +43,17 @@
             <Label Grid.Row="0" Content="Scoreboard" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <Label Content="Fill in your name:" VerticalContentAlignment="Center" FontSize="16" />
-                <TextBox Width="180px" VerticalContentAlignment="Center" Text="abc" FontSize="16" Padding="8"/>
-                <Button Content="Save" Padding="16,8"/>
+                <TextBox x:Name="tbName" Width="180px" VerticalContentAlignment="Center" FontSize="16" Padding="8"/>
+                <Button x:Name="btnSave" Content="Save" Padding="16,8" Click="BtnSave_Click"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical"/>
+            <StackPanel x:Name="spScoreboard" Grid.Row="2" Orientation="Vertical" Margin="8">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Grid}">
+                        <Setter Property="Margin" Value="0,10,0,0"/>
+                        <Setter Property="Background" Value="AliceBlue"/>
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
