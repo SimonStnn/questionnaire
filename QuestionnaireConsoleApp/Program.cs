@@ -54,6 +54,7 @@ namespace Questionnaire
             // Prompt the user with the questions
             foreach (Question question in questions)
             {
+                Shuffle(question.Answers);
                 PromptQuestion(question, guesses);
             }
 
@@ -164,6 +165,20 @@ namespace Questionnaire
                 Console.Write("  ");
             }
             Console.WriteLine();
+        }
+
+        // Fisher-Yates shuffle algorithm
+        public static List<T> Shuffle<T>(List<T> list)
+        {
+            Random rnd = new();
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rnd.Next(n + 1);
+                (list[n], list[k]) = (list[k], list[n]);
+            }
+            return list;
         }
     }
 }
