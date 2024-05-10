@@ -11,7 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="64px"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="42px"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="tbQuestion" Text="tbQuestion" TextAlignment="Center" Padding="4" Background="AliceBlue" FontSize="20" TextWrapping="Wrap"/>
         <StackPanel x:Name="spAnswers" Grid.Row="1">
