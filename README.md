@@ -11,15 +11,15 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
 - [Assignment](#assignment)
 - [Questionnaire Library](#questionnaire-library)
   - [UML Diagram](#uml-diagram)
-    - [Answer](#answer)
-      - [Atributes](#atributes)
-      - [Constructor](#constructor)
-      - [Methods](#methods)
-    - [Question](#question)
-      - [Atributes](#atributes-1)
-      - [Properties](#properties)
-      - [Constructor](#constructor-1)
-      - [Methods](#methods-1)
+  - [Answer](#answer)
+    - [Atributes](#atributes)
+    - [Constructor](#constructor)
+    - [Methods](#methods)
+  - [Question](#question)
+    - [Atributes](#atributes-1)
+    - [Properties](#properties)
+    - [Constructor](#constructor-1)
+    - [Methods](#methods-1)
 
 ## Author
 
@@ -59,38 +59,38 @@ class Question {
 Answer --o Question
 ```
 
-#### Answer
+### Answer
 
-##### Atributes
+#### Atributes
 
 - `Text`: The text of the answer
 - `IsCorrect`: If the answer is correct or not
 
-##### Constructor
+#### Constructor
 
 - `Answer(text: string, isCorrect: bool)`: Creates a new answer with the given text and if it is correct or not
 
-##### Methods
+#### Methods
 
 - `ToString() string`: Returns the text of the answer
 
-#### Question
+### Question
 
-##### Atributes
+#### Atributes
 
 - `possibleAnswer`: A list of possible answers
 
-##### Properties
+#### Properties
 
 - `Text`: The text of the question
 - `ImageUrl`: The url of the image of the question
 - `Answers`: The list of possible answers
 
-##### Constructor
+#### Constructor
 
 - `Question(text: string)`: Creates a new question with the given text
 
-##### Methods
+#### Methods
 
 - `Add(answer: Answer)`: Adds a possible answer to the question
 - `GetAnswer(index: int): Answer`: Returns the answer at the given index
