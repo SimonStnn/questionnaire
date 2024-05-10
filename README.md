@@ -20,6 +20,8 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
     - [Properties](#properties)
     - [Constructor](#constructor-1)
     - [Methods](#methods-1)
+- [Scoreboard Library](#scoreboard-library)
+  - [UML Diagram](#uml-diagram-1)
 
 ## Author
 
@@ -95,3 +97,28 @@ Answer --o Question
 - `Add(answer: Answer)`: Adds a possible answer to the question
 - `GetAnswer(index: int): Answer`: Returns the answer at the given index
 - `ToString() string`: Returns the text of the question
+
+## Scoreboard Library
+
+### UML Diagram
+
+```mermaid
+classDiagram
+direction LR
+class Scoreboard {
+  -scoreList: List~PlayerScore~
+  -saveFile: string
+  +<< get >>PlayerScores: List~PlayerScore~
+  +Scoreboard()
+  +Scoreboard(saveFile: string)
+  +AddPlayer(player: PlayerScore)
+  +AddPlayer(name: string, score: int)
+  +SortScoreboard()
+  +Clear(clearSaveFile: bool = true)
+  -SaveFileExists() bool
+  +DeleteSaveFile()
+  +Load() List~PlayerScore~
+  +Save()
+  +ToString() string
+}
+```
