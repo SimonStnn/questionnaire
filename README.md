@@ -22,6 +22,11 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
     - [Methods](#methods-1)
 - [Scoreboard Library](#scoreboard-library)
   - [UML Diagram](#uml-diagram-1)
+  - [Scoreboard](#scoreboard)
+    - [Attributes](#attributes)
+    - [Properties](#properties-1)
+    - [Constructor](#constructor-2)
+    - [Methods](#methods-2)
 
 ## Author
 
@@ -133,3 +138,31 @@ class PlayerScore {
 
 PlayerScore --o Scoreboard
 ```
+
+### Scoreboard
+
+#### Attributes
+
+- `scoreList`: A list of `PlayerScore` objects
+- `saveFile`: The file to save the scoreboard to
+
+#### Properties
+
+- `PlayerScores`: The list of `PlayerScore` objects
+
+#### Constructor
+
+- `Scoreboard()`: Creates a new scoreboard
+- `Scoreboard(saveFile: string)`: Creates a new scoreboard with the given save file
+
+#### Methods
+
+- `SaveFileExists() bool`: Checks if the save file exists
+- `AddPlayer(player: PlayerScore)`: Adds a player to the scoreboard
+- `AddPlayer(name: string, score: int)`: Adds a player to the scoreboard
+- `SortScoreboard()`: Sorts the scoreboard by score
+- `Clear(clearSaveFile: bool = true)`: Clears the scoreboard
+- `DeleteSaveFile()`: Deletes the save file
+- `Load() List~PlayerScore~`: Loads the scoreboard from the save file
+- `Save()`: Saves the scoreboard to the save file
+- `ToString() string`: Returns the scoreboard as a string
