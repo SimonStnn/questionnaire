@@ -104,7 +104,7 @@ Answer --o Question
 
 ```mermaid
 classDiagram
-direction LR
+direction RL
 class Scoreboard {
   -scoreList: List~PlayerScore~
   -saveFile: string
@@ -121,4 +121,15 @@ class Scoreboard {
   +Save()
   +ToString() string
 }
+
+class PlayerScore {
+  -name: string
+  -score: int
+  +Name: string
+  +Score: int
+  +PlayerScore(name: string, score: int)
+  +ToString() string
+}
+
+PlayerScore --o Scoreboard
 ```
