@@ -27,6 +27,10 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
     - [Properties](#properties-1)
     - [Constructor](#constructor-2)
     - [Methods](#methods-2)
+  - [PlayerScore](#playerscore)
+    - [Attributes](#attributes-1)
+    - [Constructor](#constructor-3)
+    - [Methods](#methods-3)
 
 ## Author
 
@@ -166,3 +170,20 @@ PlayerScore --o Scoreboard
 - `Load() List~PlayerScore~`: Loads the scoreboard from the save file
 - `Save()`: Saves the scoreboard to the save file
 - `ToString() string`: Returns the scoreboard as a string
+
+### PlayerScore
+
+#### Attributes
+
+- `name`: The name of the player
+- `score`: The score of the player
+- `Name`: The name of the player
+- `Score`: The score of the player
+
+#### Constructor
+
+- `PlayerScore(name: string, score: int)`: Creates a new player score
+
+#### Methods
+
+- `ToString() string`: Returns the player score as a string
