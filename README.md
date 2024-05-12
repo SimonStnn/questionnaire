@@ -32,6 +32,7 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
     - [Constructor](#constructor-3)
     - [Methods](#methods-3)
 - [Console Application](#console-application)
+- [Questionnaire The Game - WPF Application](#questionnaire-the-game---wpf-application)
 
 ## Author
 
@@ -192,3 +193,7 @@ PlayerScore --o Scoreboard
 ## Console Application
 
 The console application will use the [Questionnaire](#questionnaire-library) and [Scoreboard](#scoreboard-library) libraries to create a simple quiz game. The game will ask the user a series of questions and keep track of the score. At the end of the game, the user's score will be saved to a file and displayed on the scoreboard.
+
+## Questionnaire The Game - WPF Application
+
+The WPF application will use the [Questionnaire](#questionnaire-library) and [Scoreboard](#scoreboard-library) libraries to create a more interactive quiz game. The game will have a GUI where the user can answer questions and see their score in real-time. At the end of the game, the user's score will be saved to a file and displayed on the scoreboard.
