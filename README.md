@@ -31,6 +31,7 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
     - [Attributes](#attributes-1)
     - [Constructor](#constructor-3)
     - [Methods](#methods-3)
+- [Console Application](#console-application)
 
 ## Author
 
@@ -187,3 +188,7 @@ PlayerScore --o Scoreboard
 #### Methods
 
 - `ToString() string`: Returns the player score as a string
+
+## Console Application
+
+The console application will use the [Questionnaire](#questionnaire-library) and [Scoreboard](#scoreboard-library) libraries to create a simple quiz game. The game will ask the user a series of questions and keep track of the score. At the end of the game, the user's score will be saved to a file and displayed on the scoreboard.
