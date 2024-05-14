@@ -40,6 +40,9 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
   - [Demo](#demo-1)
   - [Questions](#questions)
   - [Results](#results)
+- [Future Improvements](#future-improvements)
+  - [Console Application](#console-application-1)
+  - [WPF Application](#wpf-application)
 
 ## Author
 
@@ -256,3 +259,16 @@ The results of the game are displayed in a new page. The user can see what they 
 ![Results](./resources/images/WPFResults.png)
 
 Here we can see that the user answered the first question correctly and the second incorrectly. The users answers are marked by the ckecked checkbox. If the user answered the question correctly, the text is green, otherwise it is red and the correct answer is green.
+
+## Future Improvements
+
+### Console Application
+
+- Add some colors to the scoreboard
+
+### WPF Application
+
+- Add a timer to the game
+- Improve the design of the application
+- Add a welcome page
+- Add a way to select a theme and difficulty for the questions
