@@ -33,6 +33,7 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
     - [Methods](#methods-3)
 - [Console Application](#console-application)
   - [Demo](#demo)
+  - [The questions and answers](#the-questions-and-answers)
   - [Scoreboard](#scoreboard-1)
 - [Questionnaire The Game - WPF Application](#questionnaire-the-game---wpf-application)
 
@@ -201,6 +202,10 @@ The console application will use the [Questionnaire](#questionnaire-library) and
 <https://github.com/SimonStnn/fractions/assets/113850648/8c0a8c47-445f-41c6-941b-4244761aee33>
 
 > Demo video of the console application
+
+### The questions and answers
+
+The questions are propmted to the user as green text. And below each question, the possible answers are displayed. The user can use the arrow keys to navigate between the answers and press enter to select an answer. The selected answer is displayed as a blue text.
 
 ### Scoreboard
 
