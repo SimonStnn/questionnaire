@@ -9,6 +9,7 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
 - [Table of Contents](#table-of-contents)
 - [Author](#author)
 - [Assignment](#assignment)
+- [Setup and Usage](#setup-and-usage)
 - [Questionnaire Library](#questionnaire-library)
   - [UML Diagram](#uml-diagram)
   - [Answer](#answer)
@@ -49,6 +50,18 @@ This application was created by [Simon Stijnen](https://github.com/SimonStnn). S
 ## Assignment
 
 This project is the 4th assignment for the Object Oriented Programming course. The assignment details can be found in the [assignment PDF](./Permanente%20evaluatie%204%20-%202024%20-%20versie%20a.pdf).
+
+## Setup and Usage
+
+To run this application you need to have the [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) and [Visual Studio](https://visualstudio.microsoft.com/) installed on your machine.
+
+Once these are installed you can start by cloning the repository
+
+```bash
+git clone https://github.com/SimonStnn/questionnaire.git
+```
+
+Then open the solution in Visual Studio and run the console application or the WPF application.
 
 ## Questionnaire Library
 
