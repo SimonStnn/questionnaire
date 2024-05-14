@@ -36,6 +36,9 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
   - [The questions and answers](#the-questions-and-answers)
   - [Scoreboard](#scoreboard-1)
 - [Questionnaire The Game - WPF Application](#questionnaire-the-game---wpf-application)
+  - [Demo](#demo-1)
+  - [Questions](#questions)
+  - [Results](#results)
 
 ## Author
 
@@ -199,6 +202,7 @@ The console application will use the [Questionnaire](#questionnaire-library) and
 
 ### Demo
 
+<!-- ./resources/videos/ConsoleAppDemo.mp4 -->
 <https://github.com/SimonStnn/fractions/assets/113850648/8c0a8c47-445f-41c6-941b-4244761aee33>
 
 > Demo video of the console application
@@ -218,3 +222,24 @@ In this case there are two players, `Simon` and `Kenrie`, both with a low score 
 ## Questionnaire The Game - WPF Application
 
 The WPF application will use the [Questionnaire](#questionnaire-library) and [Scoreboard](#scoreboard-library) libraries to create a more interactive quiz game. The game will have a GUI where the user can answer questions and see their score in real-time. At the end of the game, the user's score will be saved to a file and displayed on the scoreboard.
+
+### Demo
+
+<!-- ./resources/videos/WPFTheGameDemo.mp4 -->
+<https://github.com/SimonStnn/fractions/assets/113850648/3c1a6ece-e65c-42cf-be56-9d4570dfe133>
+
+> Demo video of the WPF application
+
+### Questions
+
+A question is displayed at the top of the window, and the possible ansers are below that. For each possible answer a button is provided.
+
+![Question](./resources/images/WPFQuestion.png)
+
+### Results
+
+The results of the game are displayed in a new page. The user can see what they answered and what the correct answer was.
+
+![Results](./resources/images/WPFResults.png)
+
+Here we can see that the user answered the first question correctly and the second incorrectly. The users answers are marked by the ckecked checkbox. If the user answered the question correctly, the text is green, otherwise it is red and the correct answer is green.
