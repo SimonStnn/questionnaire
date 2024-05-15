@@ -21,6 +21,7 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
     - [Properties](#properties)
     - [Constructor](#constructor-1)
     - [Methods](#methods-1)
+  - [Example](#example)
 - [Scoreboard Library](#scoreboard-library)
   - [UML Diagram](#uml-diagram-1)
   - [Scoreboard](#scoreboard)
@@ -32,6 +33,7 @@ Questionnaire program for Object Oriented Programming Evaluatie 4
     - [Attributes](#attributes-1)
     - [Constructor](#constructor-3)
     - [Methods](#methods-3)
+  - [Example](#example-1)
 - [Console Application](#console-application)
   - [Demo](#demo)
   - [The questions and answers](#the-questions-and-answers)
@@ -131,6 +133,28 @@ Answer --o Question
 - `GetAnswer(index: int): Answer`: Returns the answer at the given index
 - `ToString() string`: Returns the text of the question
 
+### Example
+
+Creating a question with some answers
+
+```csharp
+Question question = new("What is 2 + 2?");
+question.Add(new("3", false));
+question.Add(new("4", true));
+question.Add(new("5", false));
+```
+
+Check if an answer is correct
+
+```csharp
+Answer answer = question.GetAnswer(1);
+
+if (answer.IsCorrect)
+    Console.WriteLine("Correct!");
+else
+    Console.WriteLine("Incorrect!");
+```
+
 ## Scoreboard Library
 
 ### UML Diagram
@@ -211,6 +235,36 @@ PlayerScore --o Scoreboard
 #### Methods
 
 - `ToString() string`: Returns the player score as a string
+
+### Example
+
+Loading the scoreboard and adding some players
+
+```csharp
+Scoreboard scoreboard = new("scoreboard.json"); // Custom save file location
+// Load the scoreboard
+scoreboard.Load();
+
+// Add players to the scoreboard
+scoreboard.AddPlayer("John", 5);
+scoreboard.AddPlayer("Jane", 7);
+
+// Sort the scoreboard
+scoreboard.SortScoreboard();
+// Save the scoreboard
+scoreboard.Save();
+```
+
+Clearing the scoreboard
+  
+```csharp
+Scoreboard scoreboard = new();
+scoreboard.Load();
+
+// Clear the scoreboard
+scoreboard.Clear();
+// Save file was deleted and scoreboard is empty
+```
 
 ## Console Application
 
